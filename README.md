@@ -1,28 +1,29 @@
 # problem
 
-if you have svelte:self, bind to an object and use computed to update it or trigger render updates, svelte gets stuck in an endless loop or the rendering is blocked.
+i have noticed, that when you e.g. have a textarea in a component and if you have a `$:{}` which uses an object that is passed to the component, then this is called on every keystroke, even if there is no change on the data
 
-if you outsource this code to a function, behaviour changes, the rendering continues, but i think it still has kind of a memory leak and does a lot of stuff in the background.
+the `$:{}` in `text-field.svelte` should work similar to the one in `text-field-with-update-function.svelte` and should not be triggered, when there is no change.
 
-this test provides two versions.
-version 1 is the one that blocks everything. version 2 is the one, that uses the function to update. have a look in `comp.svelte` and have a look at the comments in the computed property.
+as you see in the 3rd example the `inputText` is always cleared because of the empty value of value.s. this update should not happen in my opinion, because data nor data.s was changed - so this somehow gets triggered bei the input-event
 
-This behavior has started in svelte `v3.0.1`. If you downgrade the the svelte versions in the `package.json` to e.g. `v3.0.0`, it works fine.
+This behavior has started in svelte `v3.2.1` i think. If you downgrade the the svelte versions in the `package.json` to e.g. `v3.0.0`, it works fine.
 
 # how to start
 
-do following in the root
+do following in the root-folder
 `npm install`
 an then
 `npm run dev` or `npm run build`
 
-afterwards open index.html in your browser
-
-## Important files:
-
-- `app.svelte` has a mouse listener and instantiates `comp.svelte`
-- `comp.svelte` demonstrates the bug
+afterwards open index.html in your browser and try to type in the textareas
 
 # expected behavior
 
-Svelte should have a break condition, so that the computed is not updated multiple times.
+- every textarea should work as the same
+- after it looses focus, the value on the right should be updated
+
+## Important files:
+
+- `app.svelte` instantiates all examples
+- files starting with `text-field-xxxxx.svelte` are all test-cases
+- `text-field.svelte` contains the test-case, that does not work
