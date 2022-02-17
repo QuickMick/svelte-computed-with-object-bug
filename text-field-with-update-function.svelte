@@ -1,6 +1,6 @@
 <script>
-  export let value = "";
-  let inputText = value;
+  export let value;
+  let inputText = value.s;
 
   $: {
     // PROBLEM: this is updated on every keytroke,

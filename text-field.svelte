@@ -1,6 +1,6 @@
 <script>
-  export let value = "";
-  let inputText = value;
+  export let value;
+  let inputText = value.s;
 
   $: {
     // PROBLEM: this is updated on every keytroke,
@@ -8,7 +8,6 @@
     console.log("trigger text-with-object update");
     inputText = value.s;
   }
-
   function applyUpdate() {
     value.s = inputText;
   }
