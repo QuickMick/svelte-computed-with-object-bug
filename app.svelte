@@ -7,16 +7,21 @@
 </script>
 
 <div class="main">
+  <!-- example that works like i would expect -->
   <h3>This works (bind string)</h3>
   <div>
-    {valueAsString}
     <TextFieldWithString bind:value={valueAsString} />
+    {valueAsString}
   </div>
 
+  <!-- example that does basically the same, but does not work as i would expect -->
+  <!-- here, an object is passed instead of a string -->
   <h3>This does not work (pass object)</h3>
   <div>
-    {valueAsObject.s}
+    <!-- usually i woudl do bind:value={valueAsObject} -->
+    <!-- and would do `value=value` to update it -->
     <TextField value={valueAsObject} />
+    {valueAsObject.s}
   </div>
 </div>
 

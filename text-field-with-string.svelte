@@ -3,7 +3,7 @@
   let inputText = value;
 
   $: {
-    // console.log("update input", value);
+    // this is just updated when actually the value changes
     console.log("trigger text-with-string update");
     inputText = value;
   }
@@ -15,8 +15,6 @@
 
 <textarea
   maxlength={100}
-  on:keydown|stopPropagation
-  on:wheel|stopPropagation
   on:blur={applyUpdate}
   class="text-input acknowledge"
   placeholder="No Description"
