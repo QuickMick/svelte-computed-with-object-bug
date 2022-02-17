@@ -4,6 +4,8 @@
   let valueAsObject = { s: "" };
 
   let valueAsString = "";
+
+  let valueAsObjectButBind = { s: "" };
 </script>
 
 <div class="main">
@@ -12,6 +14,12 @@
   <div>
     <TextFieldWithString bind:value={valueAsString} />
     {valueAsString}
+  </div>
+
+  <h3>This works as well (bind string of object)</h3>
+  <div>
+    <TextFieldWithString bind:value={valueAsObjectButBind.s} />
+    {valueAsObjectButBind.s}
   </div>
 
   <!-- example that does basically the same, but does not work as i would expect -->
