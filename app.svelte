@@ -9,6 +9,7 @@
 </script>
 
 <div class="main">
+
   <!-- example that works like i would expect -->
   <h3>This works (bind string)</h3>
   <div>
@@ -16,6 +17,7 @@
     {valueAsString}
   </div>
 
+  <!-- example that works also like i would expect -->
   <h3>This works as well (bind string of object)</h3>
   <div>
     <TextFieldWithString bind:value={valueAsObjectButBind.s} />
@@ -31,6 +33,7 @@
     <TextField value={valueAsObject} />
     {valueAsObject.s}
   </div>
+  
 </div>
 
 <style>
