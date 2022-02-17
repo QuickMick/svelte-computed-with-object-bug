@@ -27,7 +27,7 @@
 
   <!-- example that does basically the same, but does not work as i would expect -->
   <!-- here, an object is passed instead of a string -->
-  <h3>This does not work (pass object)</h3>
+  <h3 class="red">This does not work (pass object)</h3>
   <div>
     <!-- usually i woudl do bind:value={valueAsObject} -->
     <!-- and would do `value=value` to update it -->
@@ -46,5 +46,9 @@
   .main {
     width: 100vw;
     height: 100vh;
+  }
+
+  .red {
+    color: red;
   }
 </style>
